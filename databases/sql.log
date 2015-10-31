@@ -1,0 +1,329 @@
+timestamp: 2010-08-14T23:57:12.060245
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512)
+);
+success!
+timestamp: 2010-08-14T23:57:12.097122
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2010-08-14T23:57:12.109201
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2010-08-14T23:57:12.125097
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2010-08-14T23:57:12.153735
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2010-08-14T23:57:12.176200
+CREATE TABLE marca(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome CHAR(512) NOT NULL UNIQUE
+);
+success!
+timestamp: 2010-08-15T00:42:30.675466
+CREATE TABLE carro(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    marca INTEGER REFERENCES marca(id) ON DELETE CASCADE,
+    modelo CHAR(512) NOT NULL,
+    ano INTEGER NOT NULL,
+    cor CHAR(512) NOT NULL,
+    valor DOUBLE,
+    itens TEXT,
+    estado CHAR(512) NOT NULL,
+    desc TEXT,
+    foto CHAR(512),
+    slug CHAR(512) NOT NULL
+);
+success!
+timestamp: 2010-08-15T15:36:04.816005
+CREATE TABLE comprador(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_carro INTEGER REFERENCES carro(id) ON DELETE CASCADE,
+    nome CHAR(512),
+    email CHAR(512),
+    telefone CHAR(512),
+    financiar CHAR(1)
+);
+success!
+timestamp: 2010-08-15T15:38:22.540231
+ALTER TABLE comprador ADD troca CHAR(1);
+timestamp: 2010-08-15T16:03:58.977386
+ALTER TABLE comprador ADD data TIMESTAMP;
+timestamp: 2015-07-30T12:45:28.521000
+ALTER TABLE auth_user ADD registration_id CHAR(512);
+success!
+success!
+success!
+success!
+success!
+timestamp: 2015-07-30T12:45:28.800000
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!

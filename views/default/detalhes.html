@@ -1,0 +1,21 @@
+{{extend 'layout.html'}}
+{{if 'titulo' in response._vars:}}
+<div class="titulo">
+        {{=H1(titulo)}}
+</div>
+{{pass}}
+<div class="vitrine">
+    {{ for carro in vitrine:}}
+        {{=XML(carro)}}
+    {{pass}}
+</div>
+{{if 'form' in response._vars:}}
+<div class="form">
+    <fieldset>
+    <legend>Comprar</legend>
+        {{=form}}
+    </fieldset>
+</div>
+{{pass}}
+
+

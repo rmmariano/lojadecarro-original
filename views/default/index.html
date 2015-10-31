@@ -1,0 +1,10 @@
+{{extend 'layout.html'}}
+<div class="titulo">
+        {{=H1(titulo)}}
+</div>
+<div class="vitrine">
+    {{ for carro in vitrine:}}
+        {{=XML(carro)}}
+    {{pass}}
+</div>
+  
